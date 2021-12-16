@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>React Cart</title>
-
+<link rel="stylesheet" href="getData.css">
 		<link
 			rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,8 +14,19 @@
 	</head>
 
 	<body>
-		<h1>React Get Data</h1>
-
+		<h1>Harry Potter googleapis selection</h1>
+    <div id="content"></div>
+    <script>
+      function handleResponse(response) {
+      for (var i = 0; i < response.items.length; i++) {
+        var item = response.items[i];
+        // in production code, item.text should have the HTML entities escaped.
+        document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title;
+      }
+    }
+    </script>
+    <script src="https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=handleResponse"></script>
+  </body>
 		<!-- We will put our React component inside this div. -->
 		<div id="root"></div>
 
